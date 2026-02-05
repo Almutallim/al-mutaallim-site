@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Institut Al Muta'allim - Enseignement des sciences islamiques pour femmes. Programme multilingue d'excellence avec méthodologie salafie.">
+    <meta name="keywords" content="institut islamique, sciences islamiques, enseignement femmes, fiqh, aqida, coran, multilingue">
+    <title>Institut Al Muta'allim - Sciences Islamiques pour Femmes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-navy: #1a3a52;
+            --primary-gold: #D4AF37;
+            --accent-light-blue: #e8f2f7;
+            --accent-light-gold: #f9f3e3;
+            --accent-rose-gold: #c9976a;
+            --text-dark: #2a2a2a;
+            --text-light: #6b7280;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 58, 82, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(26, 58, 82, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .cta-button {
+            background: var(--primary-gold);
+            color: var(--primary-navy);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--primary-gold);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #2a5a7c 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, -50px) scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-gold);
+            color: var(--primary-navy);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-navy);
+            transform: translateY(-3px);
+        }
+
+        /* Sections communes */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-alt {
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent-light-gold) 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* À Propos */
+        #apropos {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, var(--accent-light-blue) 0%, var(--white) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .value-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #2a5a7c 100%);
+            color: var(--white);
+        }
+
+        .value-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .value-card:hover h4 {
+            color: var(--primary-gold);
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .value-card:hover p {
+            color: var(--white);
+        }
+
+        /* Programmes */
+        .programmes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .programme-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border-top: 5px solid var(--primary-gold);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .programme-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #2a5a7c 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .programme-card:hover::before {
+            opacity: 1;
+        }
+
+        .programme-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .programme-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .programme-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        .programme-card:hover .programme-icon {
+            transform: scale(1.2);
+        }
+
+        .programme-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            transition: color 0.4s ease;
+        }
+
+        .programme-card:hover h3 {
+            color: var(--primary-gold);
+        }
+
+        .programme-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            transition: color 0.4s ease;
+        }
+
+        .programme-card:hover p {
+            color: var(--white);
+        }
+
+        .programme-list {
+            list-style: none;
+        }
+
+        .programme-list li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--text-light);
+            transition: color 0.4s ease;
+        }
+
+        .programme-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--primary-gold);
+            font-size: 0.8rem;
+        }
+
+        .programme-card:hover .programme-list li {
+            color: var(--white);
+        }
+
+        /* Projet Multilingue */
+        .multilingue-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-light);
+        }
+
+        .phases-container {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .phase-block {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            border-left: 6px solid var(--primary-gold);
+        }
+
+        .phase-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--primary-navy);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .phase-badge {
+            background: var(--primary-gold);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .language-card {
+            background: linear-gradient(135deg, var(--accent-light-blue) 0%, var(--white) 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-navy);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .language-card:hover {
+            border-color: var(--primary-gold);
+            transform: scale(1.05);
+        }
+
+        .language-card.active {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-rose-gold) 100%);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .language-card .flag {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Équipe / Fondatrice */
+        .founder-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .founder-image {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #2a5a7c 100%);
+            aspect-ratio: 1;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            font-size: 8rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .founder-details h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-details .title {
+            font-size: 1.2rem;
+            color: var(--primary-gold);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .credentials {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .credential-block {
+            background: var(--accent-light-gold);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        .credential-block h4 {
+            color: var(--primary-navy);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .credential-block ul {
+            list-style: none;
+        }
+
+        .credential-block li {
+            padding: 0.6rem 0 0.6rem 1.8rem;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .credential-block li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-gold);
+            font-weight: 700;
+        }
+
+        /* Collaboration */
+        .collaboration-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h4 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #2a5a7c 100%);
+            color: var(--white);
+            padding: 4rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-box p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Contact */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info-box {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #2a5a7c 100%);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            margin: 2rem 0;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--primary-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+        }
+
+        .contact-value a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--primary-gold);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--accent-light-blue);
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--primary-gold);
+            color: var(--primary-navy);
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-navy);
+            color: var(--primary-gold);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-gold);
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .quran-verse {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--accent-light-gold) 0%, var(--white) 100%);
+        }
+
+        .quran-verse p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .quran-verse span {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 400px;
+                background: var(--primary-navy);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .founder-section,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .cta-box {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .languages-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">AL MUTA'ALLIM</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="#apropos" class="nav-link">À Propos</a></li>
+                <li><a href="#programmes" class="nav-link">Programmes</a></li>
+                <li><a href="#multilingue" class="nav-link">Projet Multilingue</a></li>
+                <li><a href="#equipe" class="nav-link">Notre Équipe</a></li>
+                <li><a href="#collaboration" class="nav-link">Collaborer</a></li>
+                <li><a href="#contact" class="nav-link cta-button">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Institut Al Muta'allim</h1>
+            <p class="hero-subtitle">Enseignement des Sciences Islamiques pour Femmes</p>
+            <p class="hero-description">
+                Rejoignez une communauté internationale dédiée à l'apprentissage authentique des sciences islamiques. 
+                Programmes en plusieurs langues avec méthodologie salafie rigoureuse et excellence pédagogique.
+            </p>
+            <div class="hero-buttons">
+                <a href="#programmes" class="btn-primary">Découvrir nos programmes</a>
+                <a href="#contact" class="btn-secondary">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- À Propos -->
+    <section id="apropos" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Notre Vision</span>
+                <h2 class="section-title">Excellence & Authenticité</h2>
+                <p class="section-description">
+                    Rendre les sciences islamiques authentiques accessibles aux femmes du monde entier, 
+                    dans leur langue maternelle.
+                </p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text reveal">
+                    <h3>Notre Mission</h3>
+                    <p>
+                        L'Institut Al Muta'allim a été fondé pour combler un besoin essentiel : offrir aux femmes 
+                        francophones et internationales un accès à un enseignement islamique authentique, structuré 
+                        et de qualité exceptionnelle.
+                    </p>
+                    <p>
+                        Nous nous engageons à dispenser une éducation basée sur le Coran, la Sunnah et la 
+                        compréhension des Salafs, avec une méthodologie pédagogique moderne et efficace.
+                    </p>
+                </div>
+
+                <div class="values-grid reveal">
+                    <div class="value-card">
+                        <h4>🕌 Authenticité</h4>
+                        <p>Méthodologie salafie basée sur les preuves du Coran et de la Sunnah</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>⭐ Excellence</h4>
+                        <p>Rigueur académique et qualité pédagogique sans compromis</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>🌍 Accessibilité</h4>
+                        <p>Démocratiser l'accès à la science islamique pour tous</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>💡 Innovation</h4>
+                        <p>Utilisation des outils numériques pour maximiser l'impact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programmes -->
+    <section id="programmes" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Nos Formations</span>
+                <h2 class="section-title">Programmes d'Excellence</h2>
+                <p class="section-description">
+                    Des parcours structurés et progressifs pour maîtriser les sciences islamiques fondamentales
+                </p>
+            </div>
+
+            <div class="programmes-grid">
+                <div class="programme-card reveal">
+                    <div class="programme-icon">📿</div>
+                    <h3>Sciences de la Croyance</h3>
+                    <p>Étude approfondie de la 'Aqida selon la méthodologie des Salafs</p>
+                    <ul class="programme-list">
+                        <li>Fondements de la foi islamique</li>
+                        <li>Curriculum annuel progressif</li>
+                        <li>Supports pédagogiques exclusifs</li>
+                    </ul>
+                </div>
+
+                <div class="programme-card reveal">
+                    <div class="programme-icon">⚖️</div>
+                    <h3>Jurisprudence Islamique</h3>
+                    <p>Maîtrise du Fiqh des adorations et des transactions</p>
+                    <ul class="programme-list">
+                        <li>Fiqh des 'Ibadat</li>
+                        <li>Fiqh des Mu'amalat</li>
+                        <li>Méthodologie de l'istinbat</li>
+                    </ul>
+                </div>
+
+                <div class="programme-card reveal">
+                    <div class="programme-icon">📖</div>
+                    <h3>Sciences Coraniques</h3>
+                    <p>Compréhension profonde et mémorisation du Livre d'Allah</p>
+                    <ul class="programme-list">
+                        <li>Tadabbur du Qoran</li>
+                        <li>Tafsir authentique</li>
+                        <li>Mémorisation guidée</li>
+                    </ul>
+                </div>
+
+                <div class="programme-card reveal">
+                    <div class="programme-icon">🌟</div>
+                    <h3>Programme Jeunesse</h3>
+                    <p>Formation adaptée pour les jeunes musulmanes</p>
+                    <ul class="programme-list">
+                        <li>Parcours adolescentes</li>
+                        <li>Orientation spirituelle</li>
+                        <li>Bases des sciences islamiques</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projet Multilingue -->
+    <section id="multilingue" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Innovation</span>
+                <h2 class="section-title">Projet Multilingue</h2>
+                <p class="section-description">
+                    La Science Pour Tous : Rendre les sciences islamiques accessibles dans toutes les langues
+                </p>
+            </div>
+
+            <div class="multilingue-intro reveal">
+                <p>
+                    Face au constat qu'un site non-musulman a été traduit en plus de 1000 langues, 
+                    alors que nous, musulmans, disposons de la religion de vérité, nous avons décidé d'agir. 
+                    Notre mission : créer une plateforme d'enseignement islamique multilingue accessible à toutes.
+                </p>
+            </div>
+
+            <div class="phases-container">
+                <div class="phase-block reveal">
+                    <h3 class="phase-title">
+                        <span class="phase-badge">Phase 1</span>
+                        Langues Prioritaires
+                    </h3>
+                    <div class="languages-grid">
+                        <div class="language-card active">
+                            <div class="flag">🇫🇷</div>
+                            <div>Français ✓</div>
+                        </div>
+                        <div class="language-card active">
+                            <div class="flag">🇸🇦</div>
+                            <div>Arabe</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🇬🇧</div>
+                            <div>Anglais</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🇷🇺</div>
+                            <div>Russe</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🇹🇷</div>
+                            <div>Turc</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🇵🇰</div>
+                            <div>Ourdou</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🇩🇿</div>
+                            <div>Tamazight</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-block reveal">
+                    <h3 class="phase-title">
+                        <span class="phase-badge">Phase 2</span>
+                        Extension Internationale
+                    </h3>
+                    <div class="languages-grid">
+                        <div class="language-card">
+                            <div class="flag">🇪🇸</div>
+                            <div>Espagnol</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🇩🇪</div>
+                            <div>Allemand</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🇮🇹</div>
+                            <div>Italien</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🇮🇩</div>
+                            <div>Indonésien</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🇲🇾</div>
+                            <div>Malais</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🌍</div>
+                            <div>Swahili</div>
+                        </div>
+                        <div class="language-card">
+                            <div class="flag">🌍</div>
+                            <div>Hausa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipe -->
+    <section id="equipe" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Leadership</span>
+                <h2 class="section-title">Notre Fondatrice</h2>
+            </div>
+
+            <div class="founder-section">
+                <div class="founder-image reveal">
+                    👩‍🎓
+                </div>
+
+                <div class="founder-details reveal">
+                    <h3>Zina SOIFI STAMADATI</h3>
+                    <p class="title">Fondatrice & Directrice | CEO CYBEREKBA</p>
+
+                    <div class="credentials">
+                        <div class="credential-block">
+                            <h4>🎓 Formation Universitaire</h4>
+                            <ul>
+                                <li>Bac+4 en Data Analyse et Cybersécurité</li>
+                                <li>Expertise en gestion de projet</li>
+                                <li>Entrepreneure confirmée</li>
+                            </ul>
+                        </div>
+
+                        <div class="credential-block">
+                            <h4>📚 Formation Religieuse</h4>
+                            <ul>
+                                <li>3ème année - Université Islamique de Riyad</li>
+                                <li>Formation auprès de Sheikh Al Mushin</li>
+                                <li>Mémorisation des Mutun</li>
+                                <li>Spécialisation Fiqh & 'Aqida</li>
+                            </ul>
+                        </div>
+
+                        <div class="credential-block">
+                            <h4>👩‍🏫 Expertise Pédagogique</h4>
+                            <ul>
+                                <li>Développement de curricula islamiques</li>
+                                <li>Création de contenus pédagogiques</li>
+                                <li>Enseignement et coaching</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration -->
+    <section id="collaboration" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Rejoignez-nous</span>
+                <h2 class="section-title">Opportunités de Collaboration</h2>
+                <p class="section-description">
+                    Nous recherchons des enseignants, prédicatrices et savants pour enrichir notre équipe pédagogique
+                </p>
+            </div>
+
+            <div class="collaboration-benefits">
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon">💰</div>
+                    <h4>Rémunération Attractive</h4>
+                    <p>25-30€/heure avec flexibilité selon l'expérience</p>
+                </div>
+
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon">🌐</div>
+                    <h4>Impact International</h4>
+                    <p>Touchez des étudiantes du monde entier</p>
+                </div>
+
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon">⏰</div>
+                    <h4>Flexibilité Totale</h4>
+                    <p>Horaires adaptables à vos disponibilités</p>
+                </div>
+
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Excellence Pédagogique</h4>
+                    <p>Environnement professionnel et bienveillant</p>
+                </div>
+            </div>
+
+            <div class="cta-box reveal">
+                <h3>Devenez Intervenant·e</h3>
+                <p>
+                    Professeurs universitaires, prédicatrices internationales, ou savants reconnus : 
+                    votre expertise peut changer des vies. Contactez-nous pour discuter d'une collaboration.
+                </p>
+                <a href="#contact" class="btn-primary">Proposer ma collaboration</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Prenons Contact</span>
+                <h2 class="section-title">Contactez-Nous</h2>
+                <p class="section-description">
+                    Une question, une inscription ou une proposition de collaboration ? Nous sommes à votre écoute.
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info-box reveal">
+                    <h3>Institut Al Muta'allim</h3>
+                    
+                    <div class="contact-item">
+                        <span class="contact-label">Fondatrice & Directrice</span>
+                        <div class="contact-value">Zina SOIFI STAMADATI</div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <div class="contact-value">
+                            <a href="mailto:contact.madame.lanalyste@proton.me">
+                                contact.madame.lanalyste@proton.me
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">Téléphone / WhatsApp</span>
+                        <div class="contact-value">
+                            <a href="tel:+213557806430">+213 557 806 430</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">Localisation</span>
+                        <div class="contact-value">
+                            Algérie<br>
+                            <small style="opacity: 0.8;">Programmes à distance accessibles internationalement</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form reveal">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Sujet *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="inscription">Inscription étudiante</option>
+                                <option value="collaboration">Proposition de collaboration</option>
+                                <option value="information">Demande d'information</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citation Coranique -->
+    <section class="quran-verse">
+        <div class="container">
+            <p>"Et dis : Ô mon Seigneur, accrois mes connaissances !"</p>
+            <span>Sourate Ta-Ha, verset 114</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Institut Al Muta'allim</h4>
+                    <p>
+                        Enseignement des sciences islamiques pour femmes avec excellence, 
+                        authenticité et innovation pédagogique.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#apropos">À Propos</a></li>
+                        <li><a href="#programmes">Programmes</a></li>
+                        <li><a href="#multilingue">Projet Multilingue</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nos Programmes</h4>
+                    <ul class="footer-links">
+                        <li><a href="#programmes">Sciences de la Croyance</a></li>
+                        <li><a href="#programmes">Jurisprudence Islamique</a></li>
+                        <li><a href="#programmes">Sciences Coraniques</a></li>
+                        <li><a href="#programmes">Programme Jeunesse</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <p>Restez informés de nos actualités et nouveaux programmes</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="mailto:contact.madame.lanalyste@proton.me" style="color: var(--primary-gold);">
+                            Newsletter (bientôt disponible)
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Institut Al Muta'allim. Tous droits réservés.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                    Conçu avec ❤️ pour la Oumma
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu mobile toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Height of navbar
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // Construct mailto link
+            const subject = encodeURIComponent(`[Institut Al Muta'allim] ${data.subject}`);
+            const body = encodeURIComponent(
+                `Nom: ${data.name}\n` +
+                `Email: ${data.email}\n\n` +
+                `Message:\n${data.message}`
+            );
+            
+            window.location.href = `mailto:contact.madame.lanalyste@proton.me?subject=${subject}&body=${body}`;
+            
+            // Reset form
+            contactForm.reset();
+            alert('Votre client email va s\'ouvrir avec le message pré-rempli. Merci !');
+        });
+
+        // Active section highlight in nav
+        const sections = document.querySelectorAll('section[id]');
+        
+        const highlightNav = () => {
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.add('active');
+                } else {
+                    document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.remove('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', highlightNav);
+    </script>
+
+</body>
+</html>
