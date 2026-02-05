@@ -1024,21 +1024,32 @@
   }
 }
 
+.flag-group{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  margin-bottom:10px;
+}
+
 .flag{
-width:42px;
-height:auto;
-display:block;
-margin:0 auto 10px;
-border-radius:6px;
-box-shadow:0 6px 14px rgba(0,0,0,.12);
+  width:34px;
+  height:24px;
+  object-fit:cover;
+  border-radius:5px;
+  box-shadow:0 4px 10px rgba(0,0,0,.12);
+}
+
+.slash{
+  font-weight:bold;
+  color:#888;
 }
 
 @media (max-width:640px){
-.languages-grid{
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-.flag{width:36px}
+  .flag{
+    width:28px;
+    height:20px;
+  }
 }
 
     </style>
@@ -1251,9 +1262,14 @@ Langues Prioritaires
 </div>
     
 <div class="language-card">
-  <img class="flag" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Amazigh_flag.svg/320px-Amazigh_flag.svg.png" alt="Tamazight">
+  <div class="flag-group">
+    <img src="https://flagcdn.com/w40/dz.png" class="flag">
+    <span class="slash">/</span>
+    <img src="https://flagcdn.com/w40/ma.png" class="flag">
+  </div>
   <div>Tamazight</div>
 </div>
+
 
 
 </div>
