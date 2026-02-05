@@ -996,26 +996,31 @@
   gap:12px;
 }
 
+/* taille desktop */
 .logo img{
-  height:72px;
-  width:auto;
+  height:90px !important;
+  width:auto !important;
+  max-height:none !important;
   display:block;
   transition:transform 0.25s ease;
 }
 
+/* effet hover */
 .logo img:hover{
-  transform:scale(1.04);
+  transform:scale(1.05);
 }
 
+/* tablette */
 @media (max-width:968px){
   .logo img{
-    height:58px;
+    height:70px !important;
   }
 }
 
+/* mobile */
 @media (max-width:640px){
   .logo img{
-    height:46px;
+    height:55px !important;
   }
 }
 
@@ -1028,7 +1033,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-    <img src="assets/logo.png" alt="Al Muta'allim" style="height:55px;">
+<img src="assets/logo.png" alt="Al Muta'allim">
 </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#accueil" class="nav-link">Accueil</a></li>
