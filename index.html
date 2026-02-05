@@ -990,14 +990,35 @@
         }
         /* dernier CSS existant */
 
-.logo img {
-    height: 55px;
-    transition: transform 0.3s ease;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-.logo img:hover {
-    transform: scale(1.05);
+.logo img{
+  height:72px;
+  width:auto;
+  display:block;
+  transition:transform 0.25s ease;
 }
+
+.logo img:hover{
+  transform:scale(1.04);
+}
+
+@media (max-width:968px){
+  .logo img{
+    height:58px;
+  }
+}
+
+@media (max-width:640px){
+  .logo img{
+    height:46px;
+  }
+}
+
 
     </style>
 </head>
