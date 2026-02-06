@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Institut Al Muta'allim - Enseignement des sciences islamiques pour femmes. Programme multilingue d'excellence avec méthodologie salafie.">
-    <meta name="keywords" content="institut islamique, sciences islamiques, enseignement femmes, fiqh, aqida, coran, multilingue">
-    <title>Institut Al Muta’allim — Formation en sciences islamiques pour adultes et enfants</title>
+    <meta name="description" content="Institut Al Muta'allim - Formation en sciences islamiques pour adultes et enfants. Programmes d'excellence avec méthodologie salafie.">
+    <meta name="keywords" content="institut islamique, sciences islamiques, enseignement, fiqh, aqida, coran, formation islamique, cours en ligne">
+    <title>Institut Al Muta'allim — Université Islamique de Prestige</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
@@ -24,6 +25,8 @@
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
             --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+            --success: #10b981;
+            --warning: #f59e0b;
         }
 
         * {
@@ -41,6 +44,40 @@
             color: var(--text-dark);
             line-height: 1.7;
             overflow-x: hidden;
+        }
+
+        /* WhatsApp Button Flottant */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            color: white;
+            font-size: 30px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8); }
         }
 
         /* Navigation */
@@ -72,6 +109,9 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
             font-weight: 700;
@@ -82,6 +122,18 @@
         }
 
         .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            height: 90px !important;
+            width: auto !important;
+            max-height: none !important;
+            display: block;
+            transition: transform 0.25s ease;
+        }
+
+        .logo img:hover {
             transform: scale(1.05);
         }
 
@@ -327,84 +379,15 @@
             line-height: 1.8;
         }
 
-        /* À Propos */
-        #apropos {
-            background: var(--white);
-        }
-
-        .about-content {
+        /* Services Grid - NOUVEAUX SERVICES */
+        .services-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .about-text h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--primary-navy);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .value-card {
-            background: linear-gradient(135deg, var(--accent-light-blue) 0%, var(--white) 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .value-card:hover {
-            border-color: var(--primary-gold);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, var(--primary-navy) 0%, #2a5a7c 100%);
-            color: var(--white);
-        }
-
-        .value-card h4 {
-            font-size: 1.3rem;
-            color: var(--primary-gold);
-            margin-bottom: 0.8rem;
-        }
-
-        .value-card:hover h4 {
-            color: var(--primary-gold);
-        }
-
-        .value-card p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
-
-        .value-card:hover p {
-            color: var(--white);
-        }
-
-        /* Programmes */
-        .programmes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
         }
 
-        .programme-card {
+        .service-card {
             background: var(--white);
             padding: 2.5rem;
             border-radius: 20px;
@@ -415,7 +398,7 @@
             overflow: hidden;
         }
 
-        .programme-card::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -428,31 +411,31 @@
             z-index: 0;
         }
 
-        .programme-card:hover::before {
+        .service-card:hover::before {
             opacity: 1;
         }
 
-        .programme-card:hover {
+        .service-card:hover {
             transform: translateY(-15px);
             box-shadow: var(--shadow-lg);
         }
 
-        .programme-card > * {
+        .service-card > * {
             position: relative;
             z-index: 1;
         }
 
-        .programme-icon {
+        .service-icon {
             font-size: 3rem;
             margin-bottom: 1.5rem;
             transition: transform 0.4s ease;
         }
 
-        .programme-card:hover .programme-icon {
+        .service-card:hover .service-icon {
             transform: scale(1.2);
         }
 
-        .programme-card h3 {
+        .service-card h3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
             color: var(--primary-navy);
@@ -460,253 +443,377 @@
             transition: color 0.4s ease;
         }
 
-        .programme-card:hover h3 {
+        .service-card:hover h3 {
             color: var(--primary-gold);
         }
 
-        .programme-card p {
+        .service-card p {
             color: var(--text-light);
             line-height: 1.8;
             margin-bottom: 1.5rem;
             transition: color 0.4s ease;
         }
 
-        .programme-card:hover p {
+        .service-card:hover p {
             color: var(--white);
         }
 
-        .programme-list {
+        .price-tag {
+            background: var(--primary-gold);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .service-card:hover .price-tag {
+            background: var(--white);
+            color: var(--primary-navy);
+        }
+
+        .service-list {
             list-style: none;
         }
 
-        .programme-list li {
+        .service-list li {
             padding: 0.5rem 0 0.5rem 1.5rem;
             position: relative;
             color: var(--text-light);
             transition: color 0.4s ease;
         }
 
-        .programme-list li::before {
-            content: '◆';
+        .service-list li::before {
+            content: '✓';
             position: absolute;
             left: 0;
             color: var(--primary-gold);
-            font-size: 0.8rem;
+            font-size: 1rem;
+            font-weight: 700;
         }
 
-        .programme-card:hover .programme-list li {
+        .service-card:hover .service-list li {
             color: var(--white);
         }
 
-        /* Projet Multilingue */
-        .multilingue-intro {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 4rem;
-            font-size: 1.2rem;
-            line-height: 1.9;
-            color: var(--text-light);
+        .btn-service {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-gold);
+            color: var(--white);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .phases-container {
-            display: grid;
-            gap: 3rem;
-        }
-
-        .phase-block {
+        .service-card:hover .btn-service {
             background: var(--white);
-            padding: 3rem;
+            color: var(--primary-navy);
+        }
+
+        /* Témoignages */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2.5rem;
             border-radius: 20px;
             box-shadow: var(--shadow-md);
-            border-left: 6px solid var(--primary-gold);
+            position: relative;
         }
 
-        .phase-title {
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-gold);
+            opacity: 0.2;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--primary-navy);
-            margin-bottom: 2rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .testimonial-author {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .phase-badge {
+        .author-avatar {
+            width: 50px;
+            height: 50px;
             background: var(--primary-gold);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .language-card {
-            background: linear-gradient(135deg, var(--accent-light-blue) 0%, var(--white) 100%);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: 600;
-            color: var(--primary-navy);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .language-card:hover {
-            border-color: var(--primary-gold);
-            transform: scale(1.05);
-        }
-
-        .language-card.active {
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-rose-gold) 100%);
-            color: var(--white);
-            box-shadow: var(--shadow-md);
-        }
-
-        .language-card .flag {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Équipe / Fondatrice */
-        .founder-section {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: start;
-            margin-top: 3rem;
-        }
-
-        .founder-image {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, #2a5a7c 100%);
-            aspect-ratio: 1;
-            border-radius: 20px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-gold);
-            font-size: 8rem;
-            box-shadow: var(--shadow-lg);
+            color: var(--white);
+            font-size: 1.5rem;
         }
 
-        .founder-details h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+        .author-info h4 {
             color: var(--primary-navy);
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
-        .founder-details .title {
-            font-size: 1.2rem;
-            color: var(--primary-gold);
-            margin-bottom: 2rem;
-            font-weight: 600;
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
-        .credentials {
-            display: grid;
-            gap: 2rem;
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto;
         }
 
-        .credential-block {
-            background: var(--accent-light-gold);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 4px solid var(--primary-gold);
-        }
-
-        .credential-block h4 {
-            color: var(--primary-navy);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .credential-block ul {
-            list-style: none;
-        }
-
-        .credential-block li {
-            padding: 0.6rem 0 0.6rem 1.8rem;
-            position: relative;
-            color: var(--text-dark);
-        }
-
-        .credential-block li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary-gold);
-            font-weight: 700;
-        }
-
-        /* Collaboration */
-        .collaboration-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .benefit-card {
+        .faq-item {
             background: var(--white);
-            padding: 2rem;
+            margin-bottom: 1.5rem;
             border-radius: 15px;
             box-shadow: var(--shadow-sm);
-            text-align: center;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--accent-light-gold);
             transition: all 0.3s ease;
         }
 
-        .benefit-card:hover {
+        .faq-question:hover {
+            background: var(--primary-gold);
+            color: var(--white);
+        }
+
+        .faq-question h4 {
+            font-size: 1.1rem;
+            color: var(--primary-navy);
+        }
+
+        .faq-question:hover h4 {
+            color: var(--white);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 1.5rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        /* Ressources / Blog */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
         }
 
-        .benefit-icon {
-            font-size: 3rem;
+        .resource-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-navy), var(--primary-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .resource-content {
+            padding: 2rem;
+        }
+
+        .resource-badge {
+            display: inline-block;
+            background: var(--primary-gold);
+            color: var(--white);
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
             margin-bottom: 1rem;
         }
 
-        .benefit-card h4 {
+        .resource-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
             color: var(--primary-navy);
             margin-bottom: 1rem;
-            font-size: 1.3rem;
         }
 
-        .benefit-card p {
+        .resource-card p {
             color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        .cta-box {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, #2a5a7c 100%);
-            color: var(--white);
-            padding: 4rem;
-            border-radius: 20px;
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        .cta-box h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: var(--primary-gold);
+            line-height: 1.8;
             margin-bottom: 1.5rem;
         }
 
-        .cta-box p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
         }
 
-        /* Contact */
+        /* Réservation en ligne */
+        .booking-section {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .booking-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .booking-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .booking-step::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-light-gold);
+            z-index: 0;
+        }
+
+        .booking-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-gold);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .booking-form {
+            background: var(--accent-light-gold);
+            padding: 2.5rem;
+            border-radius: 15px;
+        }
+
+        /* Réseaux sociaux */
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-gold);
+            transform: translateY(-5px);
+        }
+
+        .social-link.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        }
+
+        .social-link.tiktok:hover {
+            background: #000000;
+        }
+
+        .social-link.youtube:hover {
+            background: #FF0000;
+        }
+
+        /* Contact amélioré */
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -731,6 +838,10 @@
 
         .contact-item {
             margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
 
         .contact-label {
@@ -739,6 +850,8 @@
             display: block;
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .contact-value {
@@ -749,6 +862,9 @@
             color: var(--white);
             text-decoration: none;
             transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .contact-value a:hover {
@@ -893,6 +1009,10 @@
 
         /* Responsive */
         @media (max-width: 968px) {
+            .logo img {
+                height: 70px !important;
+            }
+
             .nav-menu {
                 position: fixed;
                 top: 0;
@@ -920,64 +1040,45 @@
                 font-size: 3rem;
             }
 
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .about-content,
-            .founder-section,
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
-            .values-grid {
+            .booking-steps {
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .cta-box {
-                padding: 2.5rem 1.5rem;
+            .booking-step::after {
+                display: none;
             }
         }
 
         @media (max-width: 640px) {
-            .hero-title {
-                font-size: 2.2rem;
+            .logo img {
+                height: 55px !important;
             }
 
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
+            .hero-title {
+                font-size: 2.2rem;
             }
 
             .section {
                 padding: 60px 0;
             }
 
-            .section-title {
-                font-size: 1.8rem;
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
             }
 
-            .languages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            .whatsapp-float i {
+                font-size: 25px;
             }
         }
 
         /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        /* Scroll reveal */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -988,87 +1089,41 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* dernier CSS existant */
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-/* taille desktop */
-.logo img{
-  height:90px !important;
-  width:auto !important;
-  max-height:none !important;
-  display:block;
-  transition:transform 0.25s ease;
-}
-
-/* effet hover */
-.logo img:hover{
-  transform:scale(1.05);
-}
-
-/* tablette */
-@media (max-width:968px){
-  .logo img{
-    height:70px !important;
-  }
-}
-
-/* mobile */
-@media (max-width:640px){
-  .logo img{
-    height:55px !important;
-  }
-}
-
-.flag-group{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  margin-bottom:10px;
-}
-
-.flag{
-  width:34px;
-  height:24px;
-  object-fit:cover;
-  border-radius:5px;
-  box-shadow:0 4px 10px rgba(0,0,0,.12);
-}
-
-.slash{
-  font-weight:bold;
-  color:#888;
-}
-
-@media (max-width:640px){
-  .flag{
-    width:28px;
-    height:20px;
-  }
-}
-
+        /* Badge NEW */
+        .badge-new {
+            background: var(--success);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
     </style>
 </head>
 <body>
+
+    <!-- WhatsApp Flottant -->
+    <a href="https://wa.me/213557806430" target="_blank" class="whatsapp-float" title="Contactez-nous sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-<img src="assets/logo.png" alt="Al Muta'allim">
-</a>
+                <img src="assets/logo.png" alt="Al Muta'allim">
+            </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#accueil" class="nav-link">Accueil</a></li>
-                <li><a href="#apropos" class="nav-link">À Propos</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#programmes" class="nav-link">Programmes</a></li>
-                <li><a href="#multilingue" class="nav-link">Projet Multilingue</a></li>
-                <li><a href="#equipe" class="nav-link">Notre Équipe</a></li>
-                <li><a href="#collaboration" class="nav-link">Collaborer</a></li>
+                <li><a href="#ressources" class="nav-link">Ressources</a></li>
+                <li><a href="#temoignages" class="nav-link">Témoignages</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#contact" class="nav-link cta-button">Contact</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
@@ -1083,291 +1138,237 @@
     <section id="accueil" class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Institut Al Muta'allim</h1>
-            <p class="hero-subtitle">Formation en sciences islamiques pour adultes et enfants</p>
+            <p class="hero-subtitle">Université Islamique de Prestige</p>
             <p class="hero-description">
-                Rejoignez une communauté internationale dédiée à l'apprentissage authentique des sciences islamiques. 
-                Programmes en plusieurs langues avec méthodologie salafie rigoureuse et excellence pédagogique.
+                Formation d'excellence en sciences islamiques pour adultes et enfants. 
+                Programmes multilingues avec méthodologie salafie rigoureuse.
             </p>
             <div class="hero-buttons">
-                <a href="#programmes" class="btn-primary">Découvrir nos programmes</a>
-                <a href="#contact" class="btn-secondary">Nous contacter</a>
+                <a href="#services" class="btn-primary">Découvrir nos services</a>
+                <a href="#reservation" class="btn-secondary">Réserver un cours</a>
             </div>
         </div>
     </section>
 
-    <!-- À Propos -->
-    <section id="apropos" class="section">
+    <!-- NOUVEAUX SERVICES -->
+    <section id="services" class="section">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Notre Vision</span>
-                <h2 class="section-title">Excellence & Authenticité</h2>
+                <span class="section-label">Nos Services</span>
+                <h2 class="section-title">Excellence & Accompagnement Complet</h2>
                 <p class="section-description">
-                    Rendre les sciences islamiques authentiques accessibles aux musulmans du monde entier, 
-                    dans leur langue maternelle.
+                    Des services spécialisés pour accompagner votre parcours éducatif et spirituel
                 </p>
             </div>
 
-            <div class="about-content">
-                <div class="about-text reveal">
-                    <h3>Notre Mission</h3>
-                    <p>
-                        L'Institut Al Muta'allim a été fondé pour combler un besoin essentiel : offrir aux musulmans 
-                        francophones et internationales un accès à un enseignement islamique authentique, structuré 
-                        et de qualité exceptionnelle.
-                    </p>
-                    <p>
-                        Nous nous engageons à dispenser une éducation basée sur le Coran, la Sunnah et la 
-                        compréhension des Salafs, avec une méthodologie pédagogique moderne et efficace.
-                    </p>
+            <div class="services-grid">
+                <!-- Orthophonie -->
+                <div class="service-card reveal">
+                    <div class="service-icon">🗣️</div>
+                    <h3>Orthophonie en Ligne <span class="badge-new">Nouveau</span></h3>
+                    <p>Séances d'orthophonie individuelles par visioconférence avec orthophoniste diplômée</p>
+                    <div class="price-tag">35€ / séance</div>
+                    <ul class="service-list">
+                        <li>Troubles du langage oral et écrit</li>
+                        <li>Dyslexie, dysorthographie</li>
+                        <li>Bégaiement et retards de parole</li>
+                        <li>Séances 45-60 minutes</li>
+                    </ul>
+                    <a href="#reservation" class="btn-service">Réserver</a>
                 </div>
 
-                <div class="values-grid reveal">
-                    <div class="value-card">
-                        <h4>🕌 Authenticité</h4>
-                        <p>Méthodologie salafie basée sur les preuves du Coran et de la Sunnah</p>
-                    </div>
-                    <div class="value-card">
-                        <h4>⭐ Excellence</h4>
-                        <p>Rigueur académique et qualité pédagogique sans compromis</p>
-                    </div>
-                    <div class="value-card">
-                        <h4>🌍 Accessibilité</h4>
-                        <p>Démocratiser l'accès à la science islamique pour tous</p>
-                    </div>
-                    <div class="value-card">
-                        <h4>💡 Innovation</h4>
-                        <p>Utilisation des outils numériques pour maximiser l'impact</p>
-                    </div>
+                <!-- Coaching Scolaire -->
+                <div class="service-card reveal">
+                    <div class="service-icon">🧠</div>
+                    <h3>Coaching Scolaire <span class="badge-new">Nouveau</span></h3>
+                    <p>Apprendre à apprendre : méthodologie et techniques d'apprentissage efficaces</p>
+                    <div class="price-tag">15-25€ / séance</div>
+                    <ul class="service-list">
+                        <li>Techniques de mémorisation</li>
+                        <li>Organisation du travail</li>
+                        <li>Gestion du stress examens</li>
+                        <li>Prise de notes efficace</li>
+                    </ul>
+                    <a href="#reservation" class="btn-service">Réserver</a>
+                </div>
+
+                <!-- Soutien Scolaire -->
+                <div class="service-card reveal">
+                    <div class="service-icon">📚</div>
+                    <h3>Soutien Scolaire</h3>
+                    <p>Cours de soutien en groupe ou individuels pour toutes les matières</p>
+                    <div class="price-tag">30-50€ / séance</div>
+                    <ul class="service-list">
+                        <li><strong>Primaire :</strong> 30€ groupe, 40€ individuel</li>
+                        <li><strong>Collège/Lycée :</strong> 35€ groupe, 50€ individuel</li>
+                        <li>Maths, Français, Anglais, Sciences</li>
+                        <li>Histoire-Géo, Informatique (jeux vidéo)</li>
+                    </ul>
+                    <a href="#reservation" class="btn-service">Réserver</a>
+                </div>
+
+                <!-- Programme Tarbiya -->
+                <div class="service-card reveal">
+                    <div class="service-icon">🌟</div>
+                    <h3>Programme Tarbiya</h3>
+                    <p>Accompagnement psycho-spirituel pour jeunes et adolescents</p>
+                    <div class="price-tag">25-30€ / séance</div>
+                    <ul class="service-list">
+                        <li>Guidance spirituelle</li>
+                        <li>Soutien psychologique</li>
+                        <li>Développement personnel</li>
+                        <li>Programme complet 300-360€</li>
+                    </ul>
+                    <a href="#reservation" class="btn-service">Réserver</a>
+                </div>
+
+                <!-- Certificats Courts -->
+                <div class="service-card reveal">
+                    <div class="service-icon">🎓</div>
+                    <h3>Certificats Islamiques <span class="badge-new">Nouveau</span></h3>
+                    <p>Programmes diplômants courts en sciences islamiques (3-6 mois)</p>
+                    <div class="price-tag">280-500€</div>
+                    <ul class="service-list">
+                        <li>Certificat Tajwid (300€)</li>
+                        <li>Certificat Fiqh (350€)</li>
+                        <li>Certificat Arabe (500€)</li>
+                        <li>Certificat Aqidah (280€)</li>
+                    </ul>
+                    <a href="#reservation" class="btn-service">S'inscrire</a>
+                </div>
+
+                <!-- Bibliothèque Numérique -->
+                <div class="service-card reveal">
+                    <div class="service-icon">📖</div>
+                    <h3>Bibliothèque Numérique <span class="badge-new">Nouveau</span></h3>
+                    <p>Accès illimité à nos ressources pédagogiques en ligne</p>
+                    <div class="price-tag">10€ / mois</div>
+                    <ul class="service-list">
+                        <li>200+ livres islamiques PDF</li>
+                        <li>Cours vidéo enregistrés</li>
+                        <li>Fiches de révision</li>
+                        <li>Quiz interactifs</li>
+                    </ul>
+                    <a href="#reservation" class="btn-service">S'abonner</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Programmes -->
+    <!-- Programmes Religieux (section existante améliorée) -->
     <section id="programmes" class="section section-alt">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Nos Formations</span>
-                <h2 class="section-title">Programmes d'Excellence</h2>
+                <span class="section-label">Formation Religieuse</span>
+                <h2 class="section-title">Programmes de Sciences Islamiques</h2>
                 <p class="section-description">
-                    Des parcours structurés et progressifs pour maîtriser les sciences islamiques fondamentales
+                    Des parcours structurés pour maîtriser les sciences religieuses fondamentales
                 </p>
             </div>
 
-            <div class="programmes-grid">
-                <div class="programme-card reveal">
-                    <div class="programme-icon">📿</div>
-                    <h3>Sciences de la Croyance</h3>
-                    <p>Étude approfondie de la 'Aqida selon la méthodologie des Salafs</p>
-                    <ul class="programme-list">
-                        <li>Fondements de la foi islamique</li>
-                        <li>Curriculum annuel progressif</li>
-                        <li>Supports pédagogiques exclusifs</li>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">📿</div>
+                    <h3>Sciences de la Croyance ('Aqida)</h3>
+                    <p>Étude approfondie de la croyance selon la méthodologie des Salafs</p>
+                    <div class="price-tag">16-25€ / séance</div>
+                    <ul class="service-list">
+                        <li>Fondements de la foi</li>
+                        <li>Curriculum progressif</li>
+                        <li>Supports exclusifs</li>
                     </ul>
+                    <a href="#reservation" class="btn-service">Réserver</a>
                 </div>
 
-                <div class="programme-card reveal">
-                    <div class="programme-icon">⚖️</div>
-                    <h3>Jurisprudence Islamique</h3>
+                <div class="service-card reveal">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Jurisprudence (Fiqh)</h3>
                     <p>Maîtrise du Fiqh des adorations et des transactions</p>
-                    <ul class="programme-list">
+                    <div class="price-tag">16-25€ / séance</div>
+                    <ul class="service-list">
                         <li>Fiqh des 'Ibadat</li>
                         <li>Fiqh des Mu'amalat</li>
-                        <li>Introduction aux principes de l'istinbat</li>
+                        <li>Fiqh féminin</li>
                     </ul>
+                    <a href="#reservation" class="btn-service">Réserver</a>
                 </div>
 
-                <div class="programme-card reveal">
-                    <div class="programme-icon">📖</div>
+                <div class="service-card reveal">
+                    <div class="service-icon">📗</div>
                     <h3>Sciences Coraniques</h3>
-                    <p>Compréhension profonde et mémorisation du Livre d'Allah</p>
-                    <ul class="programme-list">
-                        <li>Tadabbur du Qoran</li>
-                        <li>Tafsir authentique</li>
+                    <p>Compréhension, méditation et mémorisation du Qur'an</p>
+                    <div class="price-tag">16-25€ / séance</div>
+                    <ul class="service-list">
+                        <li>Tadabbur & Tafsir</li>
                         <li>Mémorisation guidée</li>
+                        <li>Récitation (Tajwid)</li>
                     </ul>
+                    <a href="#reservation" class="btn-service">Réserver</a>
                 </div>
 
-                <div class="programme-card reveal">
-                    <div class="programme-icon">🌟</div>
-                    <h3>Programme Jeunesse</h3>
-                    <p>Formation adaptée pour les jeunes musulmanes</p>
-                    <ul class="programme-list">
-                        <li>Parcours adolescentes</li>
-                        <li>Orientation spirituelle</li>
-                        <li>Bases des sciences islamiques</li>
+                <div class="service-card reveal">
+                    <div class="service-icon">🕌</div>
+                    <h3>Langue Arabe</h3>
+                    <p>Apprentissage progressif de la langue du Qur'an</p>
+                    <div class="price-tag">16-25€ / séance</div>
+                    <ul class="service-list">
+                        <li>Grammaire & vocabulaire</li>
+                        <li>Conversation</li>
+                        <li>Lecture de textes</li>
                     </ul>
+                    <a href="#reservation" class="btn-service">Réserver</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projet Multilingue -->
-    <section id="multilingue" class="section">
+    <!-- Ressources / Blog -->
+    <section id="ressources" class="section">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Innovation</span>
-                <h2 class="section-title">Projet Multilingue</h2>
+                <span class="section-label">Ressources</span>
+                <h2 class="section-title">Outils & Contenus Éducatifs</h2>
                 <p class="section-description">
-                    La Science Pour Tous : Rendre les sciences islamiques accessibles dans toutes les langues
+                    Des ressources gratuites pour enrichir votre apprentissage
                 </p>
             </div>
 
-            <div class="multilingue-intro reveal">
-                <p>
-                    Face au constat qu'un site non-musulman a été traduit en plus de 1000 langues, 
-                    alors que nous, musulmans, disposons de la religion de vérité, nous avons décidé d'agir. 
-                    Notre mission : créer une plateforme d'enseignement islamique multilingue accessible à tous.
-                </p>
-            </div>
-
-            <div class="phases-container">
-
-<div class="phase-block reveal">
-<h3 class="phase-title">
-<span class="phase-badge">Phase 1</span>
-Langues Prioritaires
-</h3>
-
-<div class="languages-grid">
-
-<div class="language-card active">
-<img class="flag" src="https://flagcdn.com/w80/fr.png">
-<div>Français ✓</div>
-</div>
-
-<div class="language-card active">
-<img class="flag" src="https://flagcdn.com/w80/sa.png">
-<div>Arabe</div>
-</div>
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/gb.png">
-<div>Anglais</div>
-</div>
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/ru.png">
-<div>Russe</div>
-</div>
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/tr.png">
-<div>Turc</div>
-</div>
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/pk.png">
-<div>Ourdou</div>
-</div>
-    
-<div class="language-card">
-  <div class="flag-group">
-    <img src="https://flagcdn.com/w40/dz.png" class="flag">
-    <span class="slash">/</span>
-    <img src="https://flagcdn.com/w40/ma.png" class="flag">
-  </div>
-  <div>Tamazight</div>
-</div>
-
-
-
-</div>
-</div>
-
-<div class="phase-block reveal">
-<h3 class="phase-title">
-<span class="phase-badge">Phase 2</span>
-Extension Internationale
-</h3>
-
-<div class="languages-grid">
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/es.png">
-<div>Espagnol</div>
-</div>
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/de.png">
-<div>Allemand</div>
-</div>
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/it.png">
-<div>Italien</div>
-</div>
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/id.png">
-<div>Indonésien</div>
-</div>
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/my.png">
-<div>Malais</div>
-</div>
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/tz.png">
-<div>Swahili</div>
-</div>
-
-<div class="language-card">
-<img class="flag" src="https://flagcdn.com/w80/ng.png">
-<div>Hausa</div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-    </section>
-
-    <!-- Équipe -->
-    <section id="equipe" class="section section-alt">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Leadership</span>
-                <h2 class="section-title">Notre Fondatrice</h2>
-            </div>
-
-            <div class="founder-section">
-                <div class="founder-image reveal">
-                    
+            <div class="resources-grid">
+                <div class="resource-card reveal">
+                    <div class="resource-image">🌙</div>
+                    <div class="resource-content">
+                        <span class="resource-badge">Ramadan 1447</span>
+                        <h3>Planner Ramadan Complet</h3>
+                        <p>Guide quotidien avec invocations, prières surérogatoires, planning Qur'an et tracker 30 jours</p>
+                        <div class="resource-meta">
+                            <span>📥 Téléchargement gratuit</span>
+                            <a href="#" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Télécharger</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="founder-details reveal">
-                    <h3>SOIFI Stamadati</h3>
-                    <p class="title">Fondatrice & Directrice | CEO CYBEREKBA</p>
-
-                    <div class="credentials">
-                        <div class="credential-block">
-                            <h4>🎓 Formation Universitaire</h4>
-                            <ul>
-                                <li>Bac+4 en Data Analyse et Cybersécurité</li>
-                                <li>Expertise en gestion de projet</li>
-                                <li>Entrepreneure confirmée</li>
-                            </ul>
+                <div class="resource-card reveal">
+                    <div class="resource-image">📚</div>
+                    <div class="resource-content">
+                        <span class="resource-badge">Article</span>
+                        <h3>L'importance de la science</h3>
+                        <p>Réflexion sur la quête de la connaissance en Islam et son impact sur la vie du musulman</p>
+                        <div class="resource-meta">
+                            <span>⏱️ 5 min de lecture</span>
+                            <a href="#" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Lire</a>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="credential-block">
-                            <h4>📚 Formation Religieuse</h4>
-                            <ul>
-                                <li>3ème année - Université Islamique de Riyad KIU</li>
-                                <li>Mémorisation des Mutun</li>
-                                <li>Spécialisation Fiqh & 'Aqida</li>
-                            </ul>
-                        </div>
-
-                        <div class="credential-block">
-                            <h4>👩‍🏫 Expertise Pédagogique</h4>
-                            <ul>
-                                <li>Développement de curricula islamiques</li>
-                                <li>Création de contenus pédagogiques</li>
-                                <li>Enseignement et coaching</li>
-                            </ul>
+                <div class="resource-card reveal">
+                    <div class="resource-image">🎓</div>
+                    <div class="resource-content">
+                        <span class="resource-badge">Guide</span>
+                        <h3>Comment mémoriser le Qur'an</h3>
+                        <p>Méthodologie éprouvée et conseils pratiques pour la mémorisation efficace</p>
+                        <div class="resource-meta">
+                            <span>📥 PDF gratuit</span>
+                            <a href="#" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Obtenir</a>
                         </div>
                     </div>
                 </div>
@@ -1375,110 +1376,223 @@ Extension Internationale
         </div>
     </section>
 
-    <!-- Collaboration -->
-    <section id="collaboration" class="section">
+    <!-- Témoignages -->
+    <section id="temoignages" class="section section-alt">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Rejoignez-nous</span>
-                <h2 class="section-title">Opportunités de Collaboration</h2>
+                <span class="section-label">Témoignages</span>
+                <h2 class="section-title">Ce que disent nos élèves</h2>
                 <p class="section-description">
-                    Nous recherchons des enseignants, prédicatrices et savants pour enrichir notre équipe pédagogique
+                    Des parcours inspirants et des transformations réelles
                 </p>
             </div>
 
-            <div class="collaboration-benefits">
-                <div class="benefit-card reveal">
-                    <div class="benefit-icon">💰</div>
-                    <h4>Rémunération Attractive</h4>
-                    <p>25-30€/heure avec flexibilité selon l'expérience</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">
+                        "MashaAllah, l'Institut Al Muta'allim a transformé ma compréhension de l'Islam. 
+                        L'enseignement est rigoureux, authentique et d'une qualité exceptionnelle. 
+                        Je recommande vivement !"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Amina S.</h4>
+                            <p>Étudiante en Fiqh</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="benefit-card reveal">
-                    <div class="benefit-icon">🌐</div>
-                    <h4>Impact International</h4>
-                    <p>Touchez des étudiants du monde entier</p>
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">
+                        "Le programme Tarbiya a permis à ma fille de se reconnecter avec sa foi tout en 
+                        développant sa confiance en elle. Un accompagnement précieux mashaAllah."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">K</div>
+                        <div class="author-info">
+                            <h4>Khadija M.</h4>
+                            <p>Parent d'élève</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="benefit-card reveal">
-                    <div class="benefit-icon">⏰</div>
-                    <h4>Flexibilité Totale</h4>
-                    <p>Horaires adaptables à vos disponibilités</p>
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">
+                        "Les certificats courts sont d'un excellent niveau. J'ai pu approfondir mon Tajwid 
+                        avec une méthodologie claire et des enseignants compétents. Barakallahu fikoum !"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">F</div>
+                        <div class="author-info">
+                            <h4>Fatima Z.</h4>
+                            <p>Certificat Tajwid</p>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="benefit-card reveal">
-                    <div class="benefit-icon">🎯</div>
-                    <h4>Excellence Pédagogique</h4>
-                    <p>Environnement professionnel et bienveillant</p>
-                </div>
-            </div>
-
-            <div class="cta-box reveal">
-                <h3>Devenez Intervenant·e</h3>
-                <p>
-                    Professeurs universitaires, prédicatrices internationales, ou savants reconnus : 
-                    votre expertise peut changer des vies. Contactez-nous pour discuter d'une collaboration.
-                </p>
-                <a href="#contact" class="btn-primary">Proposer ma collaboration</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section section-alt">
+    <!-- FAQ -->
+    <section id="faq" class="section">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Prenons Contact</span>
-                <h2 class="section-title">Contactez-Nous</h2>
+                <span class="section-label">Questions Fréquentes</span>
+                <h2 class="section-title">FAQ</h2>
                 <p class="section-description">
-                    Une question, une inscription ou une proposition de collaboration ? Nous sommes à votre écoute.
+                    Trouvez rapidement les réponses à vos questions
                 </p>
             </div>
 
-            <div class="contact-content">
-                <div class="contact-info-box reveal">
-                    <h3>Institut Al Muta'allim</h3>
-                    
-                    <div class="contact-item">
-                        <span class="contact-label">Fondatrice & Directrice</span>
-                        <div class="contact-value">SOIFI Stamadati</div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Comment puis-je m'inscrire aux cours ?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
-
-                    <div class="contact-item">
-                        <span class="contact-label">Email</span>
-                        <div class="contact-value">
-                            <a href="mailto:contact.almutaallim.university@proton.me">
-                                contact.almutaallim.university@proton.me
-                            </a>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Vous pouvez vous inscrire en nous contactant via WhatsApp au +213 557 80 64 30, 
+                            par email à <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d4b7bbbaa0b5b7a0fab5b8b9a1a0b5b5b8b8bdb9faa1babda2b1a6a7bda0ad94a4a6bba0bbbafab9b1">[email&#160;protected]</a>, ou en remplissant le 
+                            formulaire de contact sur cette page.
                         </div>
                     </div>
-
-                    <div class="contact-item">
-    <span class="contact-label">Téléphone / WhatsApp</span>
-    <div class="contact-value">
-        <a href="tel:+213557806430">+213 557 806 430</a>
-    </div>
-</div>
-
-<div class="contact-item">
-    <span class="contact-label">Directeur</span>
-    <div class="contact-value">
-        <a href="tel:+213794708793">+213 794 70 87 93</a>
-    </div>
-</div><div class="contact-item">
-    <span class="contact-label">Responsable Administrative</span>
-    <div class="contact-value">
-        <a href="tel:+213797745252">+213 797 74 52 52</a>
-    </div>
-</div>
-
-
                 </div>
 
-                <div class="contact-form reveal">
-                    <form id="contactForm">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Quels sont les modes de paiement acceptés ?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Nous acceptons les virements bancaires, CCP, et les paiements en espèces 
+                            pour les personnes en Algérie. Pour l'international, nous acceptons les 
+                            transferts Western Union et MoneyGram.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Les cours sont-ils uniquement pour les femmes ?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Les cours de sciences religieuses sont réservés aux sœurs. Cependant, 
+                            le soutien scolaire, le coaching et l'orthophonie sont disponibles pour 
+                            tous (avec intervenants masculins et féminins selon les besoins).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Quelle est la méthodologie d'enseignement ?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Nous suivons la méthodologie salafie basée sur le Qur'an, la Sunnah et la 
+                            compréhension des Salafs. Nos cours sont structurés, progressifs et 
+                            accompagnés de supports pédagogiques de qualité.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Puis-je avoir un cours d'essai gratuit ?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Oui, nous proposons une première séance découverte gratuite pour la plupart 
+                            de nos programmes. Contactez-nous pour en bénéficier.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Les cours sont-ils en ligne ou en présentiel ?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            La majorité de nos cours sont en ligne via Zoom ou Google Meet, ce qui 
+                            permet d'accueillir des élèves du monde entier. Certains cours en 
+                            présentiel sont disponibles à Alger.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réservation -->
+    <section id="reservation" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Inscription</span>
+                <h2 class="section-title">Réserver Votre Place</h2>
+                <p class="section-description">
+                    Un processus simple en 3 étapes
+                </p>
+            </div>
+
+            <div class="booking-section reveal">
+                <div class="booking-steps">
+                    <div class="booking-step">
+                        <div class="step-number">1</div>
+                        <h4 class="step-title">Choisissez</h4>
+                        <p class="step-description">Sélectionnez le service ou programme qui vous intéresse</p>
+                    </div>
+                    <div class="booking-step">
+                        <div class="step-number">2</div>
+                        <h4 class="step-title">Contactez</h4>
+                        <p class="step-description">Remplissez le formulaire ou contactez-nous directement</p>
+                    </div>
+                    <div class="booking-step">
+                        <div class="step-number">3</div>
+                        <h4 class="step-title">Démarrez</h4>
+                        <p class="step-description">Recevez votre confirmation et commencez votre formation</p>
+                    </div>
+                </div>
+
+                <div class="booking-form">
+                    <form id="bookingForm">
                         <div class="form-group">
-                            <label for="name">Nom complet *</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="service">Service / Programme *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Sélectionnez un service</option>
+                                <optgroup label="Services Spécialisés">
+                                    <option value="orthophonie">Orthophonie (35€/séance)</option>
+                                    <option value="coaching">Coaching Scolaire (15-25€)</option>
+                                    <option value="soutien-primaire">Soutien Scolaire Primaire (30€ groupe, 40€ individuel)</option>
+                                    <option value="soutien-college-lycee">Soutien Scolaire Collège/Lycée (35€ groupe, 50€ individuel)</option>
+                                    <option value="tarbiya">Programme Tarbiya (25-30€)</option>
+                                </optgroup>
+                                <optgroup label="Programmes Religieux">
+                                    <option value="aqida">Sciences de la Croyance (16-25€)</option>
+                                    <option value="fiqh">Jurisprudence (16-25€)</option>
+                                    <option value="quran">Sciences Coraniques (16-25€)</option>
+                                    <option value="arabe">Langue Arabe (16-25€)</option>
+                                </optgroup>
+                                <optgroup label="Formations Certifiantes">
+                                    <option value="cert-tajwid">Certificat Tajwid (300€)</option>
+                                    <option value="cert-fiqh">Certificat Fiqh (350€)</option>
+                                    <option value="cert-arabe">Certificat Arabe (500€)</option>
+                                    <option value="bibliotheque">Bibliothèque Numérique (10€/mois)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fullname">Nom complet *</label>
+                            <input type="text" id="fullname" name="fullname" required>
                         </div>
 
                         <div class="form-group">
@@ -1487,19 +1601,135 @@ Extension Internationale
                         </div>
 
                         <div class="form-group">
+                            <label for="phone">Téléphone / WhatsApp *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message (précisez vos disponibilités) *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Envoyer ma demande</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Contactez-Nous</span>
+                <h2 class="section-title">Restons en Contact</h2>
+                <p class="section-description">
+                    Notre équipe est à votre disposition pour répondre à toutes vos questions
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info-box reveal">
+                    <h3>Institut Al Muta'allim</h3>
+                    
+                    <div class="contact-item">
+                        <span class="contact-label">📧 Email</span>
+                        <div class="contact-value">
+                            <a href="/cdn-cgi/l/email-protection#8deee2e3f9eceef9a3ece1e0f8f9ecece1e1e4e0a3f8e3e4fbe8fffee4f9f4cdfdffe2f9e2e3a3e0e8">
+                                <i class="fas fa-envelope"></i>
+                                <span class="__cf_email__" data-cfemail="9dfef2f3e9fcfee9b3fcf1f0e8e9fcfcf1f1f4f0b3e8f3f4ebf8efeef4e9e4ddedeff2e9f2f3b3f0f8">[email&#160;protected]</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">👩‍💼 Directrice & Fondatrice</span>
+                        <div class="contact-value">
+                            <a href="tel:+213557806430">
+                                <i class="fas fa-phone"></i>
+                                +213 557 80 64 30
+                            </a>
+                        </div>
+                        <div class="contact-value" style="margin-top: 0.5rem;">
+                            <a href="https://wa.me/213557806430">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">👨‍💼 Directeur</span>
+                        <div class="contact-value">
+                            <a href="tel:+213794708793">
+                                <i class="fas fa-phone"></i>
+                                +213 794 70 87 93
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">📋 Responsable Administrative</span>
+                        <div class="contact-value">
+                            <a href="tel:+213797745252">
+                                <i class="fas fa-phone"></i>
+                                +213 797 74 52 52
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">📍 Localisation</span>
+                        <div class="contact-value">
+                            Alger, Algérie
+                        </div>
+                    </div>
+
+                    <!-- Réseaux sociaux -->
+                    <div class="contact-item">
+                        <span class="contact-label">🌐 Suivez-nous</span>
+                        <div class="social-links" style="justify-content: flex-start; margin-top: 1rem;">
+                            <a href="https://www.instagram.com/almutaallim.academy" target="_blank" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@almutaallimuniversity" target="_blank" class="social-link tiktok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="#" class="social-link youtube" title="Bientôt disponible">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form reveal">
+                    <h3 style="margin-bottom: 2rem; color: var(--primary-navy); font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;">Envoyez-nous un message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email">Email *</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
                             <label for="subject">Sujet *</label>
                             <select id="subject" name="subject" required>
                                 <option value="">Sélectionnez un sujet</option>
-                                <option value="inscription">Inscription étudiante</option>
-                                <option value="collaboration">Proposition de collaboration</option>
+                                <option value="inscription">Inscription</option>
                                 <option value="information">Demande d'information</option>
+                                <option value="collaboration">Proposition de collaboration</option>
+                                <option value="technique">Question technique</option>
                                 <option value="autre">Autre</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" required></textarea>
+                            <label for="contact-message">Message *</label>
+                            <textarea id="contact-message" name="message" required></textarea>
                         </div>
 
                         <button type="submit" class="submit-btn">Envoyer le message</button>
@@ -1524,156 +1754,161 @@ Extension Internationale
                 <div class="footer-section">
                     <h4>Institut Al Muta'allim</h4>
                     <p>
-                        Enseignement des sciences islamiques pour adultes et enfants avec excellence, 
-                        authenticité et innovation pédagogique.
+                        Université Islamique de Prestige dédiée à l'enseignement des sciences islamiques 
+                        pour adultes et enfants avec excellence, authenticité et innovation pédagogique.
                     </p>
+                    <div class="social-links" style="justify-content: flex-start;">
+                        <a href="https://www.instagram.com/almutaallim.academy" target="_blank" class="social-link instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@almutaallimuniversity" target="_blank" class="social-link tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="social-link youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Navigation</h4>
+                    <h4>Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#apropos">À Propos</a></li>
-                        <li><a href="#programmes">Programmes</a></li>
-                        <li><a href="#multilingue">Projet Multilingue</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#services">Orthophonie</a></li>
+                        <li><a href="#services">Coaching Scolaire</a></li>
+                        <li><a href="#services">Soutien Scolaire</a></li>
+                        <li><a href="#services">Programme Tarbiya</a></li>
+                        <li><a href="#services">Certificats Islamiques</a></li>
+                        <li><a href="#services">Bibliothèque Numérique</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Nos Programmes</h4>
+                    <h4>Programmes Religieux</h4>
                     <ul class="footer-links">
                         <li><a href="#programmes">Sciences de la Croyance</a></li>
-                        <li><a href="#programmes">Jurisprudence Islamique</a></li>
+                        <li><a href="#programmes">Jurisprudence</a></li>
                         <li><a href="#programmes">Sciences Coraniques</a></li>
-                        <li><a href="#programmes">Programme Jeunesse</a></li>
+                        <li><a href="#programmes">Langue Arabe</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Suivez-nous</h4>
-                    <p>Restez informés de nos actualités et nouveaux programmes</p>
-                    <p style="margin-top: 1rem;">
-                        <a href="mailto:contact.madame.lanalyste@proton.me" style="color: var(--primary-gold);">
-                            Newsletter (bientôt disponible)
-                        </a>
+                    <h4>Contact</h4>
+                    <p style="margin-bottom: 0.5rem;">
+                        <i class="fas fa-envelope" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>
+                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fc9f9392889d9f88d29d909189889d9d90909591d28992958a998e8f958885bc8c8e93889392d29199">[email&#160;protected]</a>
+                    </p>
+                    <p style="margin-bottom: 0.5rem;">
+                        <i class="fas fa-phone" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>
+                        +213 557 80 64 30
+                    </p>
+                    <p>
+                        <i class="fas fa-map-marker-alt" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>
+                        Alger, Algérie
                     </p>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>© 2026 Institut Al Muta'allim. Tous droits réservés.</p>
+                <p>© 2026 Institut Al Muta'allim™ - Tous droits réservés</p>
                 <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-                    Conçu avec ❤️ pour la Oumma
+                    Université Islamique de Prestige | Conçu avec ❤️ pour la Oumma
                 </p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
-    <script>
-        // Menu mobile toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+<script>
+  // Menu mobile
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
 
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
+  }
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    if (window.scrollY > 100) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
 
-        // Scroll reveal animation
-        const revealElements = document.querySelectorAll('.reveal');
-        
-        const revealOnScroll = () => {
-            revealElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
-                }
-            });
-        };
+  // Scroll reveal
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    revealElements.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) el.classList.add('active');
+    });
+  };
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
 
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Initial check
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      const offset = 80;
+      window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+    });
+  });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 80; // Height of navbar
-                    const targetPosition = target.offsetTop - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+  // FAQ Toggle
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => q.parentElement.classList.toggle('active'));
+  });
 
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            // Construct mailto link
-            const subject = encodeURIComponent(`[Institut Al Muta'allim] ${data.subject}`);
-            const body = encodeURIComponent(
-                `Nom: ${data.name}\n` +
-                `Email: ${data.email}\n\n` +
-                `Message:\n${data.message}`
-            );
-            
-            window.location.href = `mailto:contact.madame.lanalyste@proton.me?subject=${subject}&body=${body}`;
-            
-            // Reset form
-            contactForm.reset();
-            alert('Votre client email va s\'ouvrir avec le message pré-rempli. Merci !');
-        });
+  // Contact form -> mailto
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
 
-        // Active section highlight in nav
-        const sections = document.querySelectorAll('section[id]');
-        
-        const highlightNav = () => {
-            const scrollY = window.pageYOffset;
-            
-            sections.forEach(section => {
-                const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop - 100;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.add('active');
-                } else {
-                    document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.remove('active');
-                }
-            });
-        };
+      const subject = encodeURIComponent(`[Institut Al Muta'allim] ${data.subject || "Contact"}`);
+      const body = encodeURIComponent(
+        `Nom: ${data.name || ""}\n` +
+        `Email: ${data.email || ""}\n\n` +
+        `Message:\n${data.message || ""}`
+      );
 
-        window.addEventListener('scroll', highlightNav);
-    </script>
+      window.location.href = `mailto:contact.almutaallim.university@proton.me?subject=${subject}&body=${body}`;
+      contactForm.reset();
+      alert("Votre client email va s'ouvrir. Merci !");
+    });
+  }
 
-</body>
-</html>
+  // Booking form -> mailto
+  const bookingForm = document.getElementById('bookingForm');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(bookingForm);
+      const data = Object.fromEntries(formData.entries());
+
+      const subject = encodeURIComponent(`[Réservation] ${data.service || "Demande"}`);
+      const body = encodeURIComponent(
+        `Service: ${data.service || ""}\n` +
+        `Nom: ${data.fullname || ""}\n` +
+        `Email: ${data.email || ""}\n` +
+        `Téléphone: ${data.phone || ""}\n\n` +
+        `Message:\n${data.message || ""}`
+      );
+
+      window.location.href = `mailto:contact.almutaallim.university@proton.me?subject=${subject}&body=${body}`;
+      bookingForm.reset();
+      alert("Votre client email va s'ouvrir. Merci !");
+    });
+  }
+</script>
+
